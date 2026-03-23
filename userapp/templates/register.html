@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 9 - Registration</title>
+</head>
+<body>
+    <h2>Create Your Account</h2>
+
+    {% if success %}
+        <div style="color: green; font-weight: bold; border: 1px solid green; padding: 10px;">
+            Registration successful! Your account has been created.
+        </div>
+        <p><a href="/register/">Create another one</a></p>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register Now</button>
+        </form>
+    {% endif %}
+</body>
+</html>
